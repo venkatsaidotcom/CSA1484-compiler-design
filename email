@@ -1,0 +1,21 @@
+%{
+#include<stdio.h>
+%
+}
+
+%%
+
+[a-zA-Z0-9]+(@[A-Z]+)(.[A-Z]+) {printf("%s,is valid email",yytext);}
+.+{printf("is invalid email")}
+
+%%
+
+int main()
+{
+printf("enter the email");
+yy lex();
+}
+int yywrap();
+{
+return 1;
+}
